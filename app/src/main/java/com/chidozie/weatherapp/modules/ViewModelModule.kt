@@ -14,18 +14,18 @@ import kotlin.reflect.KClass
 @Module
 internal abstract class ViewModelModule {
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(HomeActivityViewModel::class)
-    internal abstract fun bindHomeActivityViewModel(homeActivityViewModel: HomeActivityViewModel): ViewModel
+  @Binds
+  @IntoMap
+  @ViewModelKey(HomeActivityViewModel::class)
+  internal abstract fun bindHomeActivityViewModel(homeActivityViewModel: HomeActivityViewModel): ViewModel
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(SplashActivityViewModel::class)
-    internal abstract fun bindSplashActivityViewModel(splashActivityViewModel: SplashActivityViewModel): ViewModel
+  @Binds
+  @IntoMap
+  @ViewModelKey(SplashActivityViewModel::class)
+  internal abstract fun bindSplashActivityViewModel(splashActivityViewModel: SplashActivityViewModel): ViewModel
 
-    @Binds
-    internal abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
+  @Binds
+  internal abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 }
 
 @kotlin.annotation.Retention

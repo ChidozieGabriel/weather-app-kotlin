@@ -1,15 +1,12 @@
 package com.chidozie.weatherapp.models
 
 import android.os.Parcelable
-import androidx.room.Embedded
 import androidx.room.Entity
 import kotlinx.android.parcel.Parcelize
 
 @Entity(primaryKeys = ["id"])
 @Parcelize
-data class Weather(
+data class GeoLocation(
     val id: Int,
-    @Embedded(prefix = "city_")
-    val city: WeatherCity,
-    val list: List<WeatherDetail>
+    val results: List<GeoLocationDetail>
 ) : Parcelable

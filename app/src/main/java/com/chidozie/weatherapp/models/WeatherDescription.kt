@@ -4,11 +4,9 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class WeatherMain(
+data class WeatherDescription(
     val id: Int,
-    val temp: Double,
-    val pressure: Double,
-    val humidity: Double,
-    val temp_min: Double,
-    val temp_max: Double
+    val main: String,
+    val description: String,
+    val icon: String
 ) : Parcelable

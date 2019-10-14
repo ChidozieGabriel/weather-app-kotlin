@@ -3,15 +3,18 @@ package com.chidozie.weatherapp.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.chidozie.weatherResponseapp.database.WeatherResponseDao
-import com.chidozie.weatherapp.models.WeatherResponse
+import com.chidozie.geoLocationapp.database.GeoLocationDao
+import com.chidozie.weatherapp.models.GeoLocation
+import com.chidozie.weatherapp.models.Weather
 
 @Database(
-    entities = [(WeatherResponse::class)],
-    version = 2
+    entities = [(Weather::class), (GeoLocation::class)],
+    version = 4
 )
 @TypeConverters(AppTypeConverters::class)
 abstract class AppDatabase : RoomDatabase() {
 
-  abstract fun weatherDao(): WeatherResponseDao
+  abstract fun weatherDao(): WeatherDao
+
+  abstract fun geoLocationDao(): GeoLocationDao
 }

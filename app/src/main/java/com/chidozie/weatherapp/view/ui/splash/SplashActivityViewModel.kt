@@ -1,6 +1,6 @@
 package com.chidozie.weatherapp.view.ui.splash
 
-import androidx.lifecycle.ViewModel
+import com.chidozie.weatherapp.view.ui.BaseViewModel
 import javax.inject.Inject
 
-class SplashActivityViewModel @Inject constructor() : ViewModel()
+class SplashActivityViewModel @Inject constructor() : BaseViewModel()

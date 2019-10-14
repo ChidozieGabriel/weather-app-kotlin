@@ -19,8 +19,10 @@ class MyApplication : Application(), HasActivityInjector {
 
         DaggerAppComponent.builder()
             .application(this)
-            .baseUrl(Utils.BASE_URL)
+            .baseWeatherUrl(Utils.WEATHER_URL)
+            .baseGeoLocationUrl(Utils.GEO_LOCATION_URL)
             .build()
+            .inject(this)
     }
 
     override fun activityInjector(): AndroidInjector<Activity> = activityInjector
