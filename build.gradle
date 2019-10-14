@@ -17,6 +17,9 @@ buildscript {
         junitVersion = '4.12'
         glideVersion = '4.8.0'
         androidx_version = '2.0.0'
+        rxjava_version = '2.2.13'
+        rxandroid_version = '2.1.1'
+        
     }
 
     repositories {

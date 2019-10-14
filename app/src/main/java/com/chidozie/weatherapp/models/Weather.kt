@@ -1,9 +1,11 @@
 package com.chidozie.weatherapp.models
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity(primaryKeys = ["id"])
+@Entity
 data class Weather(
+    @field:PrimaryKey
     val id: Int,
     val city: String,
     val temperature: String,
