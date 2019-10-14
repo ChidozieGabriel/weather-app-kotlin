@@ -2,8 +2,8 @@ package com.chidozie.weatherapp.modules
 
 import android.app.Application
 import androidx.room.Room
-import com.chidozie.weatherapp.room.AppDatabase
-import com.chidozie.weatherapp.room.WeatherDao
+import com.chidozie.weatherResponseapp.database.WeatherResponseDao
+import com.chidozie.weatherapp.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -24,7 +24,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideWeatherDao(database: AppDatabase): WeatherDao {
+    fun provideWeatherDao(database: AppDatabase): WeatherResponseDao {
         return database.weatherDao()
     }
 
