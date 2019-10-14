@@ -3,15 +3,6 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   >
 
-  <data>
-
-    <variable
-      name="viewmodel"
-      type="com.chidozie.weatherapp.view.ui.home.HomeActivityViewModel"
-      />
-
-  </data>
-
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +14,7 @@
       android:id="@+id/city"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@{viewmodel.city}"
+      android:text="Some City"
       android:textColor="@android:color/white"
       android:textSize="24sp"
       android:textStyle="bold"
@@ -76,7 +67,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
-      android:text="@{viewmodel.humidity}"
+      android:text="12.5"
       android:textColor="@android:color/white"
       android:textSize="16sp"
       app:layout_constraintLeft_toRightOf="@id/humidity_image"
@@ -109,7 +100,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
-      android:text="@{viewmodel.windSpeed}"
+      android:text="22.5 km/h"
       android:textColor="@android:color/white"
       android:textSize="16sp"
       app:layout_constraintLeft_toRightOf="@id/humidity_image"
@@ -121,12 +112,12 @@
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:src="@drawable/ic_humidity"
-      app:layout_constraintBottom_toTopOf="@id/cloud_text"
+      app:layout_constraintBottom_toTopOf="@id/description"
       app:layout_constraintTop_toBottomOf="@id/city_space"
       />
 
     <TextView
-      android:id="@+id/cloud_text"
+      android:id="@+id/description"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
@@ -134,7 +125,7 @@
       android:text="Partly Cloudy"
       android:textColor="@android:color/white"
       android:textSize="36sp"
-      app:layout_constraintBottom_toTopOf="@id/list"
+      app:layout_constraintBottom_toTopOf="@id/one"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       />
@@ -145,7 +136,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
-      android:text="@{viewmodel.temperature}"
+      android:text="22 C"
       android:textColor="@android:color/white"
       android:textSize="36sp"
       android:textStyle="bold"
@@ -157,7 +148,7 @@
       android:id="@+id/min_temperature"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@{viewmodel.minTemperature}"
+      android:text="20 C"
       android:textColor="@android:color/white"
       app:layout_constraintBaseline_toBaselineOf="@id/day"
       app:layout_constraintRight_toRightOf="parent"
@@ -167,29 +158,20 @@
       android:id="@+id/max_temperature"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@{viewmodel.maxTemperature}"
+      android:text="32 C"
       android:textColor="@android:color/white"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toBottomOf="@id/min_temperature"
       />
 
-
-    <ListView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      />
-
     <LinearLayout
-      android:id="@+id/list"
+      android:id="@+id/one"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:background="#88bbbbbb"
       android:gravity="center"
       android:orientation="vertical"
-      android:padding="12dp"
-
+      android:padding="10dp"
       app:layout_constraintBottom_toTopOf="@id/footer"
       app:layout_constraintLeft_toLeftOf="parent"
       >
@@ -207,18 +189,204 @@
         android:layout_height="8dp"
         />
 
+
       <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_humidity"
         />
 
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25 C"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/three"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="#88bbbbbb"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:padding="10dp"
+      app:layout_constraintBottom_toTopOf="@id/footer"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      >
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TUE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
 
       <Space
         android:layout_width="wrap_content"
         android:layout_height="8dp"
         />
 
+
+      <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_humidity"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25 C"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/two"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="#88bbbbbb"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:padding="10dp"
+      app:layout_constraintBottom_toTopOf="@id/footer"
+      app:layout_constraintLeft_toLeftOf="@id/one"
+      app:layout_constraintRight_toRightOf="@id/three"
+      >
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TUE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+
+      <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_humidity"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25 C"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/five"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="#88bbbbbb"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:padding="10dp"
+      app:layout_constraintBottom_toTopOf="@id/footer"
+      app:layout_constraintRight_toRightOf="parent"
+      >
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TUE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+
+      <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_humidity"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25 C"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/four"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="#88bbbbbb"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:padding="10dp"
+      app:layout_constraintBottom_toTopOf="@id/footer"
+      app:layout_constraintLeft_toLeftOf="@id/three"
+      app:layout_constraintRight_toRightOf="@id/five"
+      >
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TUE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
+
+
+      <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_humidity"
+        />
+
+      <Space
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        />
 
       <TextView
         android:layout_width="wrap_content"
@@ -233,6 +401,7 @@
       android:id="@+id/footer"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:paddingTop="16dp"
       android:text="Icon made by www.flaticon.com"
       android:textColor="@android:color/white"
       app:layout_constraintBottom_toBottomOf="parent"

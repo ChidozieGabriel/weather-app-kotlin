@@ -9,4 +9,7 @@ data class WeatherDescription(
     val main: String,
     val description: String,
     val icon: String
-) : Parcelable
+) : Parcelable {
+
+  fun getImageUrl() = "http://openweathermap.org/img/wn/$icon@2x.png"
+}
