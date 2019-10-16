@@ -18,6 +18,10 @@ class WeatherRepository @Inject constructor(
     return weatherDao.getWeathers()
   }
 
+  fun saveToDb(weather: Weather) {
+    weatherDao.insertWeather(weather)
+  }
+
   fun getWeathers(
       latitude: Double,
       longitude: Double

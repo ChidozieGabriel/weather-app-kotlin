@@ -15,13 +15,12 @@ fun ImageView.loadImage(photoUrl: String, centerCropped: Boolean = false) {
     .into(this)
 }
 
-fun Double.FromKelvinToCelsius(): Double = this - 273.15
+fun Double.fromKelvinToCelsius(): Double = this - 273.15
 
 fun Double.toFixed1(): Double = String.format("%.1f", this).toDouble()
 
-fun Date.getDayOfMonth(): String {
-  val cal = Calendar.getInstance(TimeZone.getDefault())
-  cal.time = this
-  val day = cal.get(Calendar.DAY_OF_WEEK)
-  return Utils.getDay(day)
+fun Date.getDayOfMonth(add: Int = 0): String {
+  val calendar = Calendar.getInstance().apply { time = Date() }
+  val day = calendar.get(Calendar.DAY_OF_WEEK)
+  return Utils.getDay((day + add) % 7)
 }

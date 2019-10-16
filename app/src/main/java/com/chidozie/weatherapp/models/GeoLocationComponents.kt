@@ -8,5 +8,5 @@ data class GeoLocationComponents(
     val id: Int,
     val city: String,
     val country: String,
-    val state: String
+  val state: String?
 ) : Parcelable

@@ -14,7 +14,7 @@ class GeoLocationRepository @Inject constructor(
     private val geoLocationApi: GeoLocationApi
 ) {
 
-  fun getWeathersFromDb(id: Int): LiveData<List<GeoLocation>> {
+  fun getLocationFromDb(id: Int): LiveData<List<GeoLocation>> {
     return geoLocationDao.getGeoLocations()
   }
 

@@ -28,6 +28,7 @@ class StateViewHolder(view: View, private val clickListener: ClickListener) :
     geoLocationDetail = data
     val state = geoLocationDetail.components.state
     val country = geoLocationDetail.components.country.toUpperCase()
-    binding?.title?.text = "$state, $country"
+    val stateString = state?.let { "$state, " } ?: ""
+    binding?.title?.text = "$stateString$country"
   }
 }

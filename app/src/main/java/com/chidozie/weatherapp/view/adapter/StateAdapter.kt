@@ -3,6 +3,7 @@ package com.chidozie.weatherapp.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.chidozie.weatherapp.R
 import com.chidozie.weatherapp.models.GeoLocationDetail
 import com.chidozie.weatherapp.view.viewholder.StateViewHolder
 
@@ -16,7 +17,7 @@ class StateAdapter(private val clickListener: StateViewHolder.ClickListener) :
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StateViewHolder {
-    val itemView = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
+    val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_state, parent, false)
     return StateViewHolder(itemView, clickListener)
   }
 

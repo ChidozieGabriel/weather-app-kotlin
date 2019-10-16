@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   >
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,12 +30,12 @@
       android:id="@+id/city"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Some City"
       android:textColor="@android:color/white"
       android:textSize="24sp"
       android:textStyle="bold"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@id/search"
+      tools:text="Some City"
       />
 
     <Space
@@ -50,12 +51,12 @@
       android:id="@+id/day"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Monday"
       android:textColor="@android:color/white"
       android:textSize="16sp"
       android:textStyle="bold"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/city_space"
+      tools:text="Monday"
       />
 
     <Space
@@ -72,7 +73,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:contentDescription="Humidity"
-      android:src="@drawable/ic_humidity"
+      android:src="@drawable/ic_drop_with_shine"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/day_space"
       />
@@ -82,11 +83,11 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
-      android:text="12.5"
       android:textColor="@android:color/white"
       android:textSize="16sp"
       app:layout_constraintLeft_toRightOf="@id/humidity_image"
       app:layout_constraintTop_toBottomOf="@+id/day_space"
+      tools:text="12.5"
       />
 
 
@@ -105,7 +106,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:contentDescription="Humidity"
-      android:src="@drawable/ic_humidity"
+      android:src="@drawable/ic_wet"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/humidity_space"
       />
@@ -115,11 +116,11 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
-      android:text="22.5 km/h"
       android:textColor="@android:color/white"
       android:textSize="16sp"
       app:layout_constraintLeft_toRightOf="@id/humidity_image"
       app:layout_constraintTop_toBottomOf="@+id/humidity_space"
+      tools:text="22.5 km/h"
       />
 
     <ImageView
@@ -137,12 +138,12 @@
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
       android:layout_marginBottom="16dp"
-      android:text="Partly Cloudy"
       android:textColor="@android:color/white"
       android:textSize="36sp"
       app:layout_constraintBottom_toTopOf="@id/one"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
+      tools:text="Partly Cloudy"
       />
 
 
@@ -151,32 +152,32 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
-      android:text="22 C"
       android:textColor="@android:color/white"
       android:textSize="36sp"
       android:textStyle="bold"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toBottomOf="@id/search"
+      tools:text="22 C"
       />
 
     <TextView
       android:id="@+id/min_temperature"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="20 C"
       android:textColor="@android:color/white"
       app:layout_constraintBaseline_toBaselineOf="@id/day"
       app:layout_constraintRight_toRightOf="parent"
+      tools:text="20 C"
       />
 
     <TextView
       android:id="@+id/max_temperature"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="32 C"
       android:textColor="@android:color/white"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toBottomOf="@id/min_temperature"
+      tools:text="32 C"
       />
 
 
@@ -233,11 +234,11 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:paddingTop="16dp"
-      android:text="Icon made by www.flaticon.com"
       android:textColor="@android:color/white"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
+      android:text="Icon made by www.flaticon.com"
       />
 
     <androidx.recyclerview.widget.RecyclerView

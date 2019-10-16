@@ -3,7 +3,7 @@ package com.chidozie.weatherapp.utils
 object Utils {
 
   const val WEATHER_URL = "https://api.openweathermap.org"
-  const val GEO_LOCATION_URL = "https: //api.opencagedata.com"
+  const val GEO_LOCATION_URL = "https://api.opencagedata.com"
 
   fun getDay(day: Int): String {
     assert(day in 0..6)
