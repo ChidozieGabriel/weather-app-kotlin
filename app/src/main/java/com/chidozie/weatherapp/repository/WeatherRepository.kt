@@ -14,7 +14,7 @@ class WeatherRepository @Inject constructor(
     private val weatherApi: WeatherApi
 ) {
 
-  fun getWeathersFromDb(id: Int): LiveData<List<Weather>> {
+  fun getWeathersFromDb(): LiveData<List<Weather>> {
     return weatherDao.getWeathers()
   }
 

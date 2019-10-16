@@ -10,6 +10,30 @@
     android:padding="16dp"
     >
 
+    <EditText
+      android:id="@+id/search"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Search"
+      android:paddingStart="16dp"
+      android:paddingLeft="8dp"
+      android:paddingRight="8dp"
+      android:singleLine="true"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/states"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintLeft_toLeftOf="@id/search"
+      app:layout_constraintRight_toRightOf="@id/search"
+      app:layout_constraintTop_toBottomOf="@id/search"
+      />
+
     <TextView
       android:id="@+id/city"
       android:layout_width="wrap_content"
@@ -19,7 +43,7 @@
       android:textSize="24sp"
       android:textStyle="bold"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/search"
       />
 
     <Space
@@ -141,7 +165,7 @@
       android:textSize="36sp"
       android:textStyle="bold"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/search"
       />
 
     <TextView
@@ -164,238 +188,54 @@
       app:layout_constraintTop_toBottomOf="@id/min_temperature"
       />
 
-    <LinearLayout
+
+    <include
       android:id="@+id/one"
+      layout="@layout/item_weather"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="#88bbbbbb"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:padding="10dp"
       app:layout_constraintBottom_toTopOf="@id/footer"
       app:layout_constraintLeft_toLeftOf="parent"
-      >
+      />
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TUE"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-
-      <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_humidity"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="25 C"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-    </LinearLayout>
-
-    <LinearLayout
+    <include
       android:id="@+id/three"
+      layout="@layout/item_weather"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="#88bbbbbb"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:padding="10dp"
       app:layout_constraintBottom_toTopOf="@id/footer"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
-      >
+      />
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TUE"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-
-      <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_humidity"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="25 C"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-    </LinearLayout>
-
-    <LinearLayout
+    <include
       android:id="@+id/two"
+      layout="@layout/item_weather"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="#88bbbbbb"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:padding="10dp"
       app:layout_constraintBottom_toTopOf="@id/footer"
       app:layout_constraintLeft_toLeftOf="@id/one"
       app:layout_constraintRight_toRightOf="@id/three"
-      >
+      />
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TUE"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-
-      <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_humidity"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="25 C"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-    </LinearLayout>
-
-    <LinearLayout
+    <include
       android:id="@+id/five"
+      layout="@layout/item_weather"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="#88bbbbbb"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:padding="10dp"
       app:layout_constraintBottom_toTopOf="@id/footer"
       app:layout_constraintRight_toRightOf="parent"
-      >
+      />
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TUE"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-
-      <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_humidity"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="25 C"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-    </LinearLayout>
-
-    <LinearLayout
+    <include
       android:id="@+id/four"
+      layout="@layout/item_weather"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="#88bbbbbb"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:padding="10dp"
       app:layout_constraintBottom_toTopOf="@id/footer"
       app:layout_constraintLeft_toLeftOf="@id/three"
       app:layout_constraintRight_toRightOf="@id/five"
-      >
-
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TUE"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-
-      <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_humidity"
-        />
-
-      <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
-        />
-
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="25 C"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        />
-    </LinearLayout>
+      />
 
     <TextView
       android:id="@+id/footer"

@@ -21,6 +21,7 @@ buildscript {
         rxandroid_version = '2.1.1'
         roboelectric_version = '4.0'
         espresso_version = "2.2.2"
+        support_version = '1.0.0'
     }
 
     repositories {
