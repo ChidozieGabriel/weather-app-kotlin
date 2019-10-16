@@ -8,7 +8,12 @@ import com.chidozie.weatherapp.view.viewholder.StateViewHolder
 
 class StateAdapter(private val clickListener: StateViewHolder.ClickListener) :
   RecyclerView.Adapter<StateViewHolder>() {
-  var items: List<GeoLocationDetail> = listOf()
+  private var items: List<GeoLocationDetail> = listOf()
+
+  fun updateItems(items: List<GeoLocationDetail>) {
+    this.items = items
+    notifyDataSetChanged()
+  }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StateViewHolder {
     val itemView = LayoutInflater.from(parent.context).inflate(viewType, parent, false)

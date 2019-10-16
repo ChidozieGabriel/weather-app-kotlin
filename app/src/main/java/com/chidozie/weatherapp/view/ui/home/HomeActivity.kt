@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +19,7 @@ import com.chidozie.weatherapp.api.ApiResponse
 import com.chidozie.weatherapp.databinding.ActivityHomeBinding
 import com.chidozie.weatherapp.databinding.ItemWeatherBinding
 import com.chidozie.weatherapp.factory.ViewModelFactory
+import com.chidozie.weatherapp.models.GeoLocation
 import com.chidozie.weatherapp.models.GeoLocationDetail
 import com.chidozie.weatherapp.models.Weather
 import com.chidozie.weatherapp.models.WeatherDetail
@@ -30,7 +33,7 @@ import javax.inject.Inject
 
 const val MY_LOCATION_PERMISSION = 0
 
-class HomeActivity : AppCompatActivity(), StateViewHolder.ClickListener {
+class HomeActivity : AppCompatActivity() {
 
   @Inject
   lateinit var viewModelFactory: ViewModelFactory
@@ -93,18 +96,38 @@ class HomeActivity : AppCompatActivity(), StateViewHolder.ClickListener {
     }
 
     observe()
-    viewModel.adapter = StateAdapter(this)
+    viewModel.adapter = StateAdapter(object : StateViewHolder.ClickListener {
+      override fun onItemClick(geoLocationDetail: GeoLocationDetail, view: View) {
+        viewModel.load(geoLocationDetail.geometry.lat, geoLocationDetail.geometry.lng)
+      }
+    })
+    binding.statesRecycler.adapter = viewModel.adapter
+    binding.search.addTextChangedListener(object : TextWatcher {
+
+      override fun afterTextChanged(s: Editable) {}
+
+      override fun beforeTextChanged(
+        s: CharSequence, start: Int,
+        count: Int, after: Int
+      ) {
+      }
+
+      override fun onTextChanged(
+        s: CharSequence, start: Int,
+        before: Int, count: Int
+      ) {
+        if (count > 2 && s.trim().length > 2) viewModel.search(s.toString())
+        else viewModel.adapter.updateItems(listOf())
+      }
+    })
   }
 
   private fun observe() {
+    viewModel.searchLocation.observe(this, Observer { processApiGeoLocationResponse(it) })
+    viewModel.geoLocation.observe(this, Observer { processGeoLocation(it) })
     viewModel.weatherFromNetwork.observe(this, Observer { processApiWeatherResponse(it) })
     viewModel.weatherFromDb.observe(this, Observer { processWeatherDb(it) })
     viewModel.weather.observe(this, Observer { processWeather(it) })
-  }
-
-  override fun onItemClick(geoLocationDetail: GeoLocationDetail, view: View) {
-    // Search by location
-    viewModel.load(geoLocationDetail.geometry.lat, geoLocationDetail.geometry.lng)
   }
 
   @SuppressLint("MissingPermission")
@@ -115,13 +138,29 @@ class HomeActivity : AppCompatActivity(), StateViewHolder.ClickListener {
   }
 
   @SuppressLint("SetTextI18n")
+  private fun processGeoLocation(geoLocation: GeoLocation) {
+    Log.e("GeoLocation", geoLocation.toString())
+    viewModel.adapter.updateItems(geoLocation.results)
+  }
+
+  private fun processApiGeoLocationResponse(apiResponse: ApiResponse<GeoLocation>) {
+    // TODO display progressBar
+    Log.e("ApiResponse Geo", apiResponse.code.toString())
+    Log.e("ApiResponse Geo", "error", apiResponse.error)
+    if (apiResponse.isSuccessful) {
+      apiResponse.body?.let {
+        viewModel.geoLocation.value = it
+      }
+    }
+  }
+
+  @SuppressLint("SetTextI18n")
   private fun processWeather(weather: Weather) {
     Log.e("Weather", weather.toString())
     binding.city.text = weather.city.name
     val weatherDetail = weather.list[0]
     binding.day.text = weatherDetail.getDate().getDayOfMonth()
     binding.humidityText.text = weatherDetail.main.humidity.toString()
-    //    viewModel.imageUrl = "https://some-url/${weatherDetail.icon}" // TODO set using Glide
     binding.temperature.text = "${weatherDetail.main.temp.toFixed1()} C"
     binding.maxTemperature.text = "max: ${weatherDetail.main.temp_max.toFixed1()} C"
     binding.minTemperature.text = "min: ${weatherDetail.main.temp_min.toFixed1()} C"
