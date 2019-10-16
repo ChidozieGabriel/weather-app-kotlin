@@ -197,7 +197,7 @@ class HomeActivity : AppCompatActivity() {
       binding.city.text = it.city.name
       val weatherDetail = it.list[0]
       binding.day.text = Date().getDayOfMonth()
-      binding.humidityText.text = weatherDetail.main.humidity.toString()
+      binding.humidityText.text = "${weatherDetail.main.humidity.toFixed1()} %"
       binding.temperature.text = weatherDetail.main.getTemp()
       binding.maxTemperature.text = weatherDetail.main.getTempMax()
       binding.minTemperature.text = weatherDetail.main.getTempMin()
