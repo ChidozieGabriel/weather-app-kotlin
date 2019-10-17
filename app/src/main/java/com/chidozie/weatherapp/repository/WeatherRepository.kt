@@ -28,8 +28,7 @@ class WeatherRepository @Inject constructor(
   ): LiveData<ApiResponse<Weather>> {
     return weatherApi.getWeather(
         latitude = latitude,
-        longitude = longitude,
-        apiKey = "bbeb34ebf60ad50f7893e7440a1e2b0b"
+      longitude = longitude
     ) // TODO set key from build
   }
 }
