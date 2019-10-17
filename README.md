@@ -12,3 +12,12 @@ A weather app for android phones designed with Kotlin (and the help of a thousan
 - Retrofit: For web services
 - Dagger2: For dependency injection
 - Espresso: For testing
+
+## Screenshots
+![Alt text](/screenshots/splash_screen.png?raw=true "Splash Screen")
+![Alt text](/screenshots/last_location.png?raw=true "Last Location")
+![Alt text](/screenshots/location_search.png?raw=true "Location Search")
+![Alt text](/screenshots/lagos.png?raw=true "Lagos")
+
+## Issues
+. The weather images and icons do not display, yet.
